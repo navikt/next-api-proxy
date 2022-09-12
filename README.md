@@ -10,4 +10,30 @@ yarn add @navikt/next-api-proxy
 npm i @navikt/next-api-proxy
 ```
 
-### Step 1: TODO
+### Step 1: Create a simple proxy API route
+
+Create a new API route: `/pages/api/my-new-route.ts`. Take note of the comments inside the code example.
+
+```ts
+const handler = async (req: NextApiRequest, res: NextApiResponse): void => {
+    // Here you may want to exchange some tokens
+    const token = exchangeToken(...);
+
+    // Proxy the request
+    await proxyApiRouteRequest({
+            req,
+            res,
+            hostname: "my-backend.namespace",
+            bearerToken: token,
+            // use https: false if you are going through service discovery
+            https: false,
+        });
+};
+
+// It's very important to re-export this, without it NextJS doesn't know we are handling the request on "our terms".
+export const config = proxiedApiRouteConfig;
+
+export default handler;
+```
+
+That's it! Your requests should now be proxied through NextJS.
