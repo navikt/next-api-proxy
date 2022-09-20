@@ -28,7 +28,7 @@ export async function proxyApiRouteRequest({
         hostname,
         port: useHttps ? 443 : 80,
         path,
-        method: 'POST',
+        method: req.method,
         headers: {
             ...copyHeaders(req.headers),
             Authorization: `Bearer ${bearerToken}`,
