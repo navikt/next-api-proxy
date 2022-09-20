@@ -8,23 +8,25 @@ import { copyHeaders, stream2buffer } from './proxyUtils';
 
 interface ProxyApiRouteRequestOptions {
     hostname: string;
-    https: boolean;
+    path: string;
     req: NextApiRequest;
     res: NextApiResponse;
     bearerToken: string;
+    https?: boolean;
 }
 
 export async function proxyApiRouteRequest({
     hostname,
+    path,
     req,
     res,
     bearerToken,
-    https: useHttps,
+    https: useHttps = false,
 }: ProxyApiRouteRequestOptions): Promise<void> {
     const requestOptions: RequestOptions = {
         hostname,
         port: useHttps ? 443 : 80,
-        path: '/graphql',
+        path,
         method: 'POST',
         headers: {
             ...copyHeaders(req.headers),
