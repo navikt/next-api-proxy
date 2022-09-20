@@ -12,6 +12,7 @@ interface ProxyApiRouteRequestOptions {
     req: NextApiRequest;
     res: NextApiResponse;
     bearerToken: string;
+    /** default: true */
     https?: boolean;
 }
 
@@ -21,7 +22,7 @@ export async function proxyApiRouteRequest({
     req,
     res,
     bearerToken,
-    https: useHttps = false,
+    https: useHttps = true,
 }: ProxyApiRouteRequestOptions): Promise<void> {
     const requestOptions: RequestOptions = {
         hostname,
