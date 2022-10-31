@@ -30,8 +30,13 @@ const handler = async (req: NextApiRequest, res: NextApiResponse): void => {
         });
 };
 
-// It's very important to re-export this, without it NextJS doesn't know we are handling the request on "our terms".
-export const config = proxiedApiRouteConfig;
+// It's very important to configure this, without it NextJS doesn't know we are handling the request on "our terms".
+export const config = {
+    api: {
+        bodyParser: false,
+        externalResolver: true,
+    },
+};
 
 export default handler;
 ```
