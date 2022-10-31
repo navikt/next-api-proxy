@@ -59,10 +59,3 @@ export async function proxyApiRouteRequest({
     backendReq.write(bodyResponse);
     backendReq.end();
 }
-
-export const proxiedApiRouteConfig = {
-    api: {
-        bodyParser: false,
-        externalResolver: true,
-    },
-};
