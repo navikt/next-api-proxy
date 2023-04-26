@@ -1,6 +1,6 @@
 {
     "name": "@navikt/next-api-proxy",
-    "version": "2.3.0",
+    "version": "3.0.0",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "files": [
@@ -10,13 +10,13 @@
         "build": "tsc --declaration"
     },
     "peerDependencies": {
-        "next": "12"
+        "next": "13"
     },
     "devDependencies": {
-        "@navikt/eslint-config-teamsykmelding": "^0.20.0",
-        "@types/node": "^18.7.16",
-        "next": "^12.3.0",
-        "typescript": "^4.8.3"
+        "@navikt/eslint-config-teamsykmelding": "^1.6.0",
+        "@types/node": "^18.16.1",
+        "next": "^13.3.1",
+        "typescript": "^5.0.4"
     },
     "eslintConfig": {
         "extends": [
