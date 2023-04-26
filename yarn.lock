@@ -59,7 +59,7 @@ __metadata:
     next: ^13.3.1
     typescript: ^5.0.4
   peerDependencies:
-    next: 12
+    next: 13
   languageName: unknown
   linkType: soft
 
