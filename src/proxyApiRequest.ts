@@ -59,6 +59,11 @@ export async function proxyApiRouteRequest({
         });
     });
 
+    backendReq.on('error', (error) => {
+        console.error('Error in proxy request:', error);
+        res.status(500).json({ message: 'Error occurred while proxying the request.' });
+    });
+
     backendReq.write(bodyResponse);
     backendReq.end();
 }
