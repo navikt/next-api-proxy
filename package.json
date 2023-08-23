@@ -1,6 +1,9 @@
 {
     "name": "@navikt/next-api-proxy",
     "version": "3.3.0",
+    "engines": {
+        "node": "18"
+    },
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "files": [
@@ -13,10 +16,10 @@
         "next": "13"
     },
     "devDependencies": {
-        "@navikt/eslint-config-teamsykmelding": "^1.6.0",
-        "@types/node": "^18.16.1",
-        "next": "^13.3.1",
-        "typescript": "^5.0.4"
+        "@navikt/eslint-config-teamsykmelding": "^4.2.0",
+        "@types/node": "^18.17.8",
+        "next": "^13.4.19",
+        "typescript": "^5.1.6"
     },
     "eslintConfig": {
         "extends": [

@@ -1,19 +1,19 @@
-import { Readable } from 'stream';
-import http, { RequestOptions } from 'http';
-import https from 'https';
+import { Readable } from 'stream'
+import http, { RequestOptions } from 'http'
+import https from 'https'
 
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextApiRequest, NextApiResponse } from 'next'
 
-import { copyHeaders, stream2buffer } from './proxyUtils';
+import { copyHeaders, stream2buffer } from './proxyUtils'
 
 interface ProxyApiRouteRequestOptions {
-    hostname: string;
-    path: string;
-    req: NextApiRequest;
-    res: NextApiResponse;
-    bearerToken?: string;
+    hostname: string
+    path: string
+    req: NextApiRequest
+    res: NextApiResponse
+    bearerToken?: string
     /** default: true */
-    https?: boolean;
+    https?: boolean
 }
 
 export async function proxyApiRouteRequest({
@@ -26,8 +26,8 @@ export async function proxyApiRouteRequest({
 }: ProxyApiRouteRequestOptions): Promise<void> {
     const headers = {
         ...copyHeaders(req.headers),
-    };
-    if(bearerToken){
+    }
+    if (bearerToken) {
         headers.Authorization = `Bearer ${bearerToken}`
     }
     const requestOptions: RequestOptions = {
@@ -36,34 +36,34 @@ export async function proxyApiRouteRequest({
         path,
         method: req.method,
         headers,
-    };
+    }
 
-    const stream = Readable.from(req);
-    const bodyResponse = await stream2buffer(stream);
+    const stream = Readable.from(req)
+    const bodyResponse = await stream2buffer(stream)
     const backendReq = (useHttps ? https : http).request(requestOptions, (proxyRequestResponse) => {
         if (proxyRequestResponse.statusCode != null) {
-            res.status(proxyRequestResponse.statusCode);
+            res.status(proxyRequestResponse.statusCode)
         }
         for (const headersKey in proxyRequestResponse.headers) {
-            const header = proxyRequestResponse.headers[headersKey];
+            const header = proxyRequestResponse.headers[headersKey]
             if (header) {
-                res.setHeader(headersKey, header);
+                res.setHeader(headersKey, header)
             }
         }
 
         proxyRequestResponse.on('data', (data: unknown) => {
-            res.write(data);
-        });
+            res.write(data)
+        })
         proxyRequestResponse.on('end', () => {
-            res.end();
-        });
-    });
+            res.end()
+        })
+    })
 
     backendReq.on('error', (error) => {
-        console.warn('Error in proxy request:', error);
-        res.status(500).json({ message: 'Error occurred while proxying the request.' });
-    });
+        console.warn('Error in proxy request:', error)
+        res.status(500).json({ message: 'Error occurred while proxying the request.' })
+    })
 
-    backendReq.write(bodyResponse);
-    backendReq.end();
+    backendReq.write(bodyResponse)
+    backendReq.end()
 }

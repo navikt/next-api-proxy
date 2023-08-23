@@ -1,1 +1,1 @@
-export * from './proxyApiRequest';
+export * from './proxyApiRequest'
