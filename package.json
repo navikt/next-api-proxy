@@ -2,7 +2,7 @@
     "name": "@navikt/next-api-proxy",
     "version": "3.3.1",
     "engines": {
-        "node": "18"
+        "node": ">=18"
     },
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
