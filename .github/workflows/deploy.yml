@@ -1,5 +1,9 @@
 name: Build and publish library
 
+permissions:
+  packages: write
+  contents: write
+
 on:
   push:
     branches: ['main']
