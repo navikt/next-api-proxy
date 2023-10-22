@@ -16,7 +16,7 @@
         "next": "13"
     },
     "devDependencies": {
-        "@navikt/eslint-config-teamsykmelding": "^4.3.0",
+        "@navikt/eslint-config-teamsykmelding": "^4.5.0",
         "@types/node": "^18.18.5",
         "next": "^13.5.4",
         "typescript": "^5.2.2"
