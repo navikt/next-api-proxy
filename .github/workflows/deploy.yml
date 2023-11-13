@@ -7,28 +7,15 @@ permissions:
 on:
   push:
     branches: ['main']
-env:
-  NPM_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
 
 jobs:
   build:
     if: "!contains(github.event.head_commit.message, '[docs]')"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: navikt/teamsykmelding-github-actions-workflows/actions/yarn-cached@node-20
         with:
-          node-version: 18
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@navikt'
-      - uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: .yarn/cache
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-      - run: yarn --immutable
+          NPM_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
       - run: yarn build
       - run: npm publish
         if: github.ref == 'refs/heads/main'

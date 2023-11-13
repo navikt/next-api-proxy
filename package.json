@@ -2,7 +2,7 @@
     "name": "@navikt/next-api-proxy",
     "version": "3.3.3",
     "engines": {
-        "node": ">=18"
+        "node": "20"
     },
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
@@ -26,5 +26,6 @@
             "@navikt/eslint-config-teamsykmelding"
         ]
     },
-    "prettier": "@navikt/eslint-config-teamsykmelding/prettier"
+    "prettier": "@navikt/eslint-config-teamsykmelding/prettier",
+    "packageManager": "yarn@4.0.1"
 }
