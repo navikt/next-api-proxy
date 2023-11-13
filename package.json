@@ -1,6 +1,6 @@
 {
     "name": "@navikt/next-api-proxy",
-    "version": "3.3.3",
+    "version": "3.4.0",
     "engines": {
         "node": "20"
     },
@@ -20,9 +20,6 @@
         "@types/node": "^20.9.0",
         "next": "^14.0.2",
         "typescript": "^5.2.2"
-    },
-    "publishConfig": {
-        "registry": "https://npm.pkg.github.com"
     },
     "eslintConfig": {
         "extends": [
