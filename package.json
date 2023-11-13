@@ -21,6 +21,9 @@
         "next": "^14.0.2",
         "typescript": "^5.2.2"
     },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com"
+    },
     "eslintConfig": {
         "extends": [
             "@navikt/eslint-config-teamsykmelding"
