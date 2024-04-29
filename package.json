@@ -16,10 +16,10 @@
         "next": "13 || 14"
     },
     "devDependencies": {
-        "@navikt/eslint-config-teamsykmelding": "^5.0.0",
-        "@types/node": "^20.9.0",
-        "next": "^14.0.2",
-        "typescript": "^5.2.2"
+        "@navikt/eslint-config-teamsykmelding": "^6.1.0",
+        "@types/node": "^20.12.7",
+        "next": "^14.2.3",
+        "typescript": "^5.4.5"
     },
     "eslintConfig": {
         "extends": [
@@ -27,5 +27,5 @@
         ]
     },
     "prettier": "@navikt/eslint-config-teamsykmelding/prettier",
-    "packageManager": "yarn@4.0.1"
+    "packageManager": "yarn@4.1.1"
 }
