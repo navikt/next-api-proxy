@@ -23,9 +23,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@navikt/eslint-config-teamsykmelding@npm:^6.1.0":
-  version: 6.1.0
-  resolution: "@navikt/eslint-config-teamsykmelding@npm:6.1.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Feslint-config-teamsykmelding%2F6.1.0%2F20868e92372915947947344cfac936757bf4590d"
+"@navikt/eslint-config-teamsykmelding@npm:^6.2.0":
+  version: 6.2.0
+  resolution: "@navikt/eslint-config-teamsykmelding@npm:6.2.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Feslint-config-teamsykmelding%2F6.2.0%2Fb6632aab24f13d2f7666ac049136cb73af2876f2"
   dependencies:
     "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
     "@typescript-eslint/parser": "npm:^6.21.0"
@@ -33,13 +33,13 @@ __metadata:
     eslint-plugin-import: "npm:^2.29.1"
     eslint-plugin-prettier: "npm:^5.1.3"
     eslint-plugin-react: "npm:^7.34.1"
-    eslint-plugin-react-hooks: "npm:^4.6.0"
+    eslint-plugin-react-hooks: "npm:^4.6.2"
     eslint-plugin-testing-library: "npm:^6.2.2"
   peerDependencies:
     eslint: ">=8"
     prettier: ">=2"
     typescript: ">=4"
-  checksum: 10/be3eed0b01040c76c5a3f1cc190b8cc2726ac262131ecf3cb90a0d7aeba03e3b744e31d51e830dd13a0321cf6b1bc502a90670eec762ed47cdb6a3cd8b5aa150
+  checksum: 10/c1522f4ca1eac61a993944b3575a4c6d7341f9b74503f93e5a1a93a13e400e1fb2730a3ec7ff3d58b43360911a90a66302c51f70483a4b3f6702f0407e5dd450
   languageName: node
   linkType: hard
 
@@ -47,7 +47,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@navikt/next-api-proxy@workspace:."
   dependencies:
-    "@navikt/eslint-config-teamsykmelding": "npm:^6.1.0"
+    "@navikt/eslint-config-teamsykmelding": "npm:^6.2.0"
     "@types/node": "npm:^20.12.7"
     next: "npm:^14.2.3"
     typescript: "npm:^5.4.5"
@@ -911,7 +911,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react-hooks@npm:^4.6.0":
+"eslint-plugin-react-hooks@npm:^4.6.2":
   version: 4.6.2
   resolution: "eslint-plugin-react-hooks@npm:4.6.2"
   peerDependencies:
