@@ -1,6 +1,6 @@
 {
     "name": "@navikt/next-api-proxy",
-    "version": "3.4.5",
+    "version": "3.4.6",
     "engines": {
         "node": "20"
     },
