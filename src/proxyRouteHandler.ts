@@ -13,6 +13,7 @@ export async function proxyRouteHandler(
 ): Promise<Response> {
     const requestUrl = new URL(request.url)
     requestUrl.host = hostname
+    requestUrl.port =  ''
     requestUrl.protocol = https ? 'https:' : 'http:'
     requestUrl.pathname = path
 
