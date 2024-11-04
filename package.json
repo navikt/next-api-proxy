@@ -1,9 +1,6 @@
 {
     "name": "@navikt/next-api-proxy",
     "version": "4.1.2",
-    "engines": {
-        "node": "20 || 21 || 22"
-    },
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "files": [
