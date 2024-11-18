@@ -1,6 +1,6 @@
 {
     "name": "@navikt/next-api-proxy",
-    "version": "4.1.3",
+    "version": "4.1.4",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "files": [
