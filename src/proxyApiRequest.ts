@@ -12,6 +12,7 @@ interface ProxyApiRouteRequestOptions {
     req: NextApiRequest
     res: NextApiResponse
     bearerToken?: string
+    port?: number;
     /** default: true */
     https?: boolean
 }
@@ -22,6 +23,7 @@ export async function proxyApiRouteRequest({
     req,
     res,
     bearerToken,
+    port,
     https: useHttps = true,
 }: ProxyApiRouteRequestOptions): Promise<void> {
     const headers = {
@@ -30,9 +32,10 @@ export async function proxyApiRouteRequest({
     if (bearerToken) {
         headers.Authorization = `Bearer ${bearerToken}`
     }
+
     const requestOptions: RequestOptions = {
         hostname,
-        port: useHttps ? 443 : 80,
+        port: port ?? (useHttps ? 443 : 80),
         path,
         method: req.method,
         headers,
