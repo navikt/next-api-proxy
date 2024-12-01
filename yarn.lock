@@ -207,9 +207,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@navikt/eslint-config-teamsykmelding@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "@navikt/eslint-config-teamsykmelding@npm:7.0.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Feslint-config-teamsykmelding%2F7.0.0%2F178081b1fa728ae67901674105ba8d5f5130406a"
+"@navikt/eslint-config-teamsykmelding@npm:^7.1.0":
+  version: 7.1.0
+  resolution: "@navikt/eslint-config-teamsykmelding@npm:7.1.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Feslint-config-teamsykmelding%2F7.1.0%2F8891977f8bd817a5815ffc9d3fac7b3a30f5047b"
   dependencies:
     "@typescript-eslint/eslint-plugin": "npm:7.18.0"
     "@typescript-eslint/parser": "npm:7.18.0"
@@ -223,7 +223,7 @@ __metadata:
     eslint: ">=8"
     prettier: ">=2"
     typescript: ">=4"
-  checksum: 10/272216b04a4bc7f1fa74482e152631244dd613a3f7bc899ef23c2f49ba2a530ef2665a5e350f782b45481a33824aa095220ac1f7bddf76f150c50c39448a3fc6
+  checksum: 10/d3f946d469dc237ac1ad7644e333f05862c92bb4a4413e635895bb4efed9e44b0760de0d24455c7674209c07ba41837540c19c3935209848f92f837a317a1690
   languageName: node
   linkType: hard
 
@@ -231,7 +231,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@navikt/next-api-proxy@workspace:."
   dependencies:
-    "@navikt/eslint-config-teamsykmelding": "npm:^7.0.0"
+    "@navikt/eslint-config-teamsykmelding": "npm:^7.1.0"
     "@types/node": "npm:^20.16.5"
     next: "npm:^15.0.1"
     typescript: "npm:^5.6.2"
