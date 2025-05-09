@@ -5,15 +5,16 @@ type RouteHandlerProxyTarget = {
     path: string
     https: boolean
     bearerToken?: string
+    port?: string
 }
 
 export async function proxyRouteHandler(
     request: Request,
-    { hostname, https, path, bearerToken }: RouteHandlerProxyTarget,
+    { hostname, https, path, bearerToken, port }: RouteHandlerProxyTarget,
 ): Promise<Response> {
     const requestUrl = new URL(request.url)
     requestUrl.host = hostname
-    requestUrl.port =  ''
+    requestUrl.port =  port ?? ''
     requestUrl.protocol = https ? 'https:' : 'http:'
     requestUrl.pathname = path
 
