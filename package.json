@@ -14,9 +14,9 @@
     },
     "devDependencies": {
         "@navikt/eslint-config-teamsykmelding": "^7.1.0",
-        "@types/node": "^22.13.13",
-        "next": "^15.2.4",
-        "typescript": "^5.8.2"
+        "@types/node": "^22.15.17",
+        "next": "^15.3.2",
+        "typescript": "^5.8.3"
     },
     "eslintConfig": {
         "extends": [
