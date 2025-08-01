@@ -16,7 +16,7 @@
         "@navikt/eslint-config-teamsykmelding": "^7.1.0",
         "@types/node": "^22.15.17",
         "next": "^15.3.2",
-        "typescript": "^5.8.3"
+        "typescript": "^5.9.2"
     },
     "eslintConfig": {
         "extends": [
