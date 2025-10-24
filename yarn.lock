@@ -243,7 +243,7 @@ __metadata:
     next: "npm:^15.3.2"
     typescript: "npm:^5.8.3"
   peerDependencies:
-    next: 14 || 15
+    next: 14 || 15 || 16
   languageName: unknown
   linkType: soft
 

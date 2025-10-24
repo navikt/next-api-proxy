@@ -10,7 +10,7 @@
         "build": "tsc --declaration"
     },
     "peerDependencies": {
-        "next": "14 || 15"
+        "next": "14 || 15 || 16"
     },
     "devDependencies": {
         "@navikt/eslint-config-teamsykmelding": "^7.1.0",
