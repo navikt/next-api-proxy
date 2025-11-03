@@ -1,6 +1,7 @@
 {
     "name": "@navikt/next-api-proxy",
     "version": "4.1.7",
+    "packageManager": "yarn@4.7.0",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "files": [
@@ -13,9 +14,10 @@
         "next": "14 || 15 || 16"
     },
     "devDependencies": {
-        "@navikt/eslint-config-teamsykmelding": "^7.1.0",
+        "@navikt/tsm-prettier": "^2.0.0",
         "@types/node": "^22.15.17",
         "next": "^15.3.2",
+        "prettier": "^3.6.2",
         "typescript": "^5.8.3"
     },
     "eslintConfig": {
@@ -23,6 +25,5 @@
             "@navikt/eslint-config-teamsykmelding"
         ]
     },
-    "prettier": "@navikt/eslint-config-teamsykmelding/prettier",
-    "packageManager": "yarn@4.7.0"
+    "prettier": "@navikt/tsm-prettier"
 }
