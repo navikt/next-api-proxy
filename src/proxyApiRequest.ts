@@ -15,6 +15,7 @@ interface ProxyApiRouteRequestOptions {
     port?: number;
     /** default: true */
     https?: boolean
+    includeCookies?: boolean
 }
 
 export async function proxyApiRouteRequest({
@@ -24,10 +25,11 @@ export async function proxyApiRouteRequest({
     res,
     bearerToken,
     port,
+    includeCookies,
     https: useHttps = true,
 }: ProxyApiRouteRequestOptions): Promise<void> {
     const headers = {
-        ...copyHeaders(req.headers),
+        ...copyHeaders(req.headers, includeCookies),
     }
     if (bearerToken) {
         headers.Authorization = `Bearer ${bearerToken}`
