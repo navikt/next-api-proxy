@@ -1,5 +1,5 @@
-import { IncomingHttpHeaders } from 'http'
-import { Stream } from 'stream'
+import {IncomingHttpHeaders} from 'http'
+import {Stream} from 'stream'
 
 export async function stream2buffer(stream: Stream): Promise<Buffer> {
     return new Promise<Buffer>((resolve, reject) => {
@@ -10,15 +10,17 @@ export async function stream2buffer(stream: Stream): Promise<Buffer> {
     })
 }
 
-const headersToSkip = ['host', 'cookie', 'authorization']
+const headersToSkip = ['host', 'authorization']
 
-export function copyHeaders(reqHeaders: Headers): Headers
-export function copyHeaders(reqHeaders: IncomingHttpHeaders): IncomingHttpHeaders
-export function copyHeaders(reqHeaders: IncomingHttpHeaders | Headers): IncomingHttpHeaders | Headers {
+export function copyHeaders(reqHeaders: Headers, includeCookies: boolean | undefined): Headers
+export function copyHeaders(reqHeaders: IncomingHttpHeaders, includeCookies: boolean | undefined): IncomingHttpHeaders
+export function copyHeaders(reqHeaders: IncomingHttpHeaders | Headers, includeCookies: boolean | undefined): IncomingHttpHeaders | Headers {
     if (reqHeaders instanceof Headers) {
         const headers: Headers = new Headers()
         for (const [key, value] of reqHeaders.entries()) {
-            if (!headersToSkip.includes(key.toLowerCase())) {
+            if (key.toLowerCase() === 'cookie' && includeCookies) {
+                headers.set(key, value)
+            } else if (!headersToSkip.includes(key.toLowerCase())) {
                 headers.set(key, value)
             }
         }
