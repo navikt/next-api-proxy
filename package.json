@@ -1,12 +1,15 @@
 {
     "name": "@navikt/next-api-proxy",
     "version": "4.1.7",
-    "packageManager": "yarn@4.7.0",
+    "packageManager": "yarn@4.10.3",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "files": [
         "dist"
     ],
+    "engines": {
+        "node": "22 || 24"
+    },
     "scripts": {
         "build": "tsc --declaration"
     },
