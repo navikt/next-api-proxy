@@ -6,11 +6,12 @@ type RouteHandlerProxyTarget = {
     https: boolean
     bearerToken?: string
     port?: string
+    includeCookies?: boolean
 }
 
 export async function proxyRouteHandler(
     request: Request,
-    { hostname, https, path, bearerToken, port }: RouteHandlerProxyTarget,
+    { hostname, https, path, bearerToken, port, includeCookies }: RouteHandlerProxyTarget,
 ): Promise<Response> {
     const requestUrl = new URL(request.url)
     requestUrl.host = hostname
@@ -18,7 +19,7 @@ export async function proxyRouteHandler(
     requestUrl.protocol = https ? 'https:' : 'http:'
     requestUrl.pathname = path
 
-    const headers = copyHeaders(request.headers)
+    const headers = copyHeaders(request.headers, includeCookies)
     if (bearerToken) {
         headers.set('Authorization', `Bearer ${bearerToken}`)
     }
