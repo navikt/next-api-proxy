@@ -28,7 +28,6 @@ export async function proxyRouteHandler(
         headers,
         method: request.method,
         body: request.body,
-        // @ts-expect-error Duplex property is missing in types
         duplex: 'half',
     })
 }

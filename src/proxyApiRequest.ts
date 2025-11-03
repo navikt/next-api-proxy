@@ -1,8 +1,8 @@
 import { Readable } from 'stream'
-import http, { RequestOptions } from 'http'
+import http, { type RequestOptions } from 'http'
 import https from 'https'
 
-import { NextApiRequest, NextApiResponse } from 'next'
+import type { NextApiRequest, NextApiResponse } from 'next'
 
 import { copyHeaders, stream2buffer } from './proxyUtils'
 

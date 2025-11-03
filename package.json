@@ -1,7 +1,8 @@
 {
     "name": "@navikt/next-api-proxy",
-    "version": "4.1.8",
+    "version": "5.0.0",
     "packageManager": "yarn@4.10.3",
+    "type": "module",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "files": [
@@ -11,7 +12,9 @@
         "node": "22 || 24"
     },
     "scripts": {
-        "build": "tsc --declaration"
+        "build": "tsup",
+        "next:major": "yarn version -i major",
+        "next:minor": "yarn version -i minor"
     },
     "peerDependencies": {
         "next": "14 || 15 || 16"
@@ -21,6 +24,7 @@
         "@types/node": "^22.19.0",
         "next": "^16.0.1",
         "prettier": "^3.6.2",
+        "tsup": "^8.5.0",
         "typescript": "^5.9.3"
     },
     "eslintConfig": {
