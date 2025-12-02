@@ -1,7 +1,7 @@
 {
     "name": "@navikt/next-api-proxy",
     "version": "5.0.1",
-    "packageManager": "yarn@4.10.3",
+    "packageManager": "yarn@4.12.0",
     "type": "module",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
