@@ -1,5 +1,23 @@
-import { IncomingHttpHeaders } from 'http'
+import type { IncomingHttpHeaders } from 'http'
 import { Stream } from 'stream'
+
+export function resolveForwardedValues(headers: Headers): { host: string; proto: string }
+export function resolveForwardedValues(headers: IncomingHttpHeaders): { host: string; proto: string }
+export function resolveForwardedValues(headers: Headers | IncomingHttpHeaders): { host: string; proto: string } {
+    if (headers instanceof Headers) {
+        return {
+            host: headers.get('x-forwarded-host') ?? headers.get('host') ?? '',
+            proto: headers.get('x-forwarded-proto') ?? 'https',
+        }
+    }
+
+    const rawHost = headers['x-forwarded-host'] ?? headers['host'] ?? ''
+    const rawProto = headers['x-forwarded-proto'] ?? 'https'
+    return {
+        host: Array.isArray(rawHost) ? rawHost[0] : rawHost,
+        proto: Array.isArray(rawProto) ? rawProto[0] : rawProto,
+    }
+}
 
 export async function stream2buffer(stream: Stream): Promise<Buffer> {
     return new Promise<Buffer>((resolve, reject) => {

@@ -4,7 +4,7 @@ import https from 'https'
 
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-import { copyHeaders, stream2buffer } from './proxyUtils'
+import { copyHeaders, resolveForwardedValues, stream2buffer } from './proxyUtils'
 
 interface ProxyApiRouteRequestOptions {
     hostname: string
@@ -16,6 +16,8 @@ interface ProxyApiRouteRequestOptions {
     /** default: true */
     https?: boolean
     includeCookies?: boolean
+    forwardedHost?: boolean
+    forwardedPrefix?: string
 }
 
 export async function proxyApiRouteRequest({
@@ -27,12 +29,22 @@ export async function proxyApiRouteRequest({
     port,
     includeCookies,
     https: useHttps = true,
+    forwardedHost,
+    forwardedPrefix,
 }: ProxyApiRouteRequestOptions): Promise<void> {
     const headers = {
         ...copyHeaders(req.headers, includeCookies),
     }
     if (bearerToken) {
         headers.Authorization = `Bearer ${bearerToken}`
+    }
+    if (forwardedHost) {
+        const { host, proto } = resolveForwardedValues(req.headers)
+        if (!headers['x-forwarded-host'])  headers['x-forwarded-host'] = host
+        if (!headers['x-forwarded-proto']) headers['x-forwarded-proto'] = proto
+    }
+    if (forwardedPrefix !== undefined && !headers['x-forwarded-prefix']) {
+        headers['x-forwarded-prefix'] = forwardedPrefix
     }
 
     const requestOptions: RequestOptions = {
