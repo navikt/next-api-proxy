@@ -7,8 +7,8 @@
         "access": "public",
         "registry": "https://npm.pkg.github.com/"
     },
-    "main": "./dist/index.js",
-    "types": "./dist/index.d.ts",
+    "main": "./dist/index.mjs",
+    "types": "./dist/index.d.mts",
     "files": [
         "dist"
     ],
@@ -16,7 +16,7 @@
         "node": "22 || 24"
     },
     "scripts": {
-        "build": "tsup",
+        "build": "tsdown",
         "next:major": "yarn version -i major",
         "next:minor": "yarn version -i minor"
     },
@@ -28,7 +28,7 @@
         "@types/node": "^24.13.1",
         "next": "^16.2.7",
         "prettier": "^3.8.3",
-        "tsup": "^8.5.1",
+        "tsdown": "^0.22.2",
         "typescript": "^5.9.3"
     },
     "eslintConfig": {
