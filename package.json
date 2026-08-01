@@ -24,7 +24,7 @@
         "next": "14 || 15 || 16"
     },
     "devDependencies": {
-        "@navikt/tsm-prettier": "^2.0.0",
+        "@navikt/tsm-prettier": "^2.0.1",
         "@types/node": "^24.13.1",
         "next": "^16.2.7",
         "prettier": "^3.8.3",
